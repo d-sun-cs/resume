@@ -27,28 +27,26 @@
 
 % \section{\faGraduationCap\ 教育背景}
 \section{教育背景}
-\datedsubsection{\textbf{哈尔滨工业大学（深圳）}| 计算机科学与技术 | \textit{学硕在读}}{2024.9 - 至今}
+\datedsubsection{\textbf{哈尔滨工业大学（深圳）}| 计算机科学与技术 | 学硕在读}{2024.9 - 至今}
 \begin{itemize}
-  \item \textbf{绩点3.654/4} | 研究方向：高性能计算、并行计算
+  \item \textbf{绩点3.657/4} | 研究方向：高性能计算、并行计算 | 课程分数/100：矩阵分析/99、高级算法/92.4、并行处理/91.5
 \end{itemize}
-\datedsubsection{\textbf{哈尔滨工业大学（深圳）}| 计算机科学与技术 | \textit{学士}}{2020.9 - 2024.6}
+\datedsubsection{\textbf{哈尔滨工业大学（深圳）}| 计算机科学与技术 | 学士}{2020.9 - 2024.6}
 \begin{itemize}
-  \item \textbf{学分绩94.7/100} | \textbf{排名10/527(前2\%)} | \textbf{国家奖学金（两次）}| 国家励志奖学金 | 华为智能基座奖学金 | 哈尔滨工业大学优秀团员/学生标兵 | 哈尔滨工业大学优秀毕业生
+  \item \textbf{学分绩94.7/100} | \textbf{排名10/527(前2\%)} | \textbf{国家奖学金（两次）}| 国家励志奖学金 | 华为智能基座奖学金 | 哈尔滨工业大学优秀团员/学生标兵 | 哈尔滨工业大学优秀毕业生 | 课程分数/100：操作系统/96、计算机网络/97
 \end{itemize}
 
-% \section{\faCogs\ IT 技能}
-% \section{技术能力}
-% increase linespacing [parsep=0.5ex]
-% \begin{itemize}[parsep=0.2ex]
-%   \item \textbf{编程语言}: JavaScript (ECMAScript, Node.js), HTML/CSS, Python, Go, SQL, C, Shell
-%   \item \textbf{操作系统,数据库与工程构建}: Linux/macOS/MySQL/MongoDB/Git/webpack/Progressive Web App
-%   \item \textbf{关键词}: React/Vue.js/D3.js(SVG)/three.js(canvas, WebGL)/chrome extension/Express
-% \end{itemize}
+\section{技术能力}
+\begin{itemize}[parsep=0.2ex]
+  \item \textbf{编程语言}: 熟悉C/C++、CUDA，了解Python、Shell、Java、JS/HTML/CSS、Go、SQL
+  \item \textbf{工程构建}: 熟悉CMake、Git、Linux、Docker，了解Redis/MySQL、Webpack、Gradle、Maven
+  \item \textbf{开发框架}: 熟悉cuBLAS、cuSparse了解CUTLASS、Spring（Boot | Security）、MyBatis、Vue.js、Chrome Extension
+\end{itemize}
 
-% \end{itemize}
 
 \section{实习经历}
-\datedsubsection{\textbf{天王星量化深圳研究院} | C++推理框架优化项目 | \textit{高性能计算开发实习生}}{2024.06 - 2024.09}
+\datedsubsection{\textbf{天王星量化深圳研究院}}{2024.06 - 2024.09}
+\textit{推理框架优化项目 | C++语言 | 高性能计算开发实习生}
 \begin{itemize}
   \item 背景：公司专用量化模型的推理框架有待进一步优化，并需要完善文档以支撑后续迭代。
   \item 任务：为推理框架撰写技术文档，学习开源推理框架，进一步探索计算图的推理加速方案。
@@ -57,44 +55,43 @@
 \end{itemize}
 
 \section{项目经历}
-\datedsubsection{\textbf{移位异或纠删码的Ceph集成与优化} | C++科研项目 | \textit{硕士毕业设计}}{2024.06 - 2024.09}
+\datedsubsection{\textbf{移位异或纠删码的Ceph集成与优化}}{2024.06 - 2024.09}
+\textit{硕士科研项目/毕业设计 | C++语言}
 \begin{itemize}
   \item 背景：导师自研的移位异或纠删码理论性能高于传统纠删码，实际性能可在存储系统中进一步验证。
   \item 任务：将移位异或纠删码集成至开源分布式存储系统Ceph，做出一定的适配与优化，并测试其性能。
   \item 工作：\ding{172}分析Ceph纠删码结构，实现其接口以集成新算法；\ding{173}用Redis存储移位多出的校验数据（Ceph只能存对齐部分）；\ding{174}实现错位窗口与相邻合并优化内存访问，提出“纠删映射”高效泛化解码。
   \item 结果：成功通过Ceph内置纠删码功能测试；编解码相较于Ceph中SOTA算法ISA提速约30\%。
 \end{itemize}
-\datedsubsection{\textbf{面向新型GPU架构的SpMM加速器} | CUDA C++科研项目 | \textit{本科毕业设计 }}{2023.11 - 2024.05}
+\datedsubsection{\textbf{面向新型GPU架构的稀疏矩阵乘法（SpMM）加速器}}{2023.11 - 2024.05}
+\textit{本科科研项目/毕业设计 | CUDA C++语言}
 \begin{itemize}
-  \item 背景：内存访问是SpMM算法的性能瓶颈, Ampere架构新增共享内存相关特性, 可用于缓解内存瓶颈
-  \item 任务：利用从全局内存到共享内存异步数据拷贝的新特性, 通过流水线数据预取优化SpMM算法
-  \item 工作：用ncu分析性能瓶颈, 用新特性改进现有研究算法, 实现适配新特性的最大化复用稠密矩阵算法
-  \item 结果：应用新特性的算法在小矩阵“隐藏延时”不足的情况下性能较官方库更好, 项目研究仍在继续
+  \item 背景：内存访问是SpMM的性能瓶颈，Ampere架构新增共享内存相关特性，可用于缓解内存瓶颈
+  \item 任务：利用从全局内存到共享内存异步数据拷贝的新特性，通过流水线数据预取优化SpMM算法
+  \item 工作：用ncu分析性能瓶颈，用新特性改进现有研究算法，实现适配新特性的复用稠密矩阵算法
+  \item 结果：应用新特性的算法在小矩阵“隐藏延时”不足的情况下性能较官方库更好，项目研究仍在继续
 \end{itemize}
-\datedsubsection{\textbf{基于SPDK实现Linux用户态IO多路径软件} | C语言竞赛项目 | \textit{参赛队长}}{2023.11 - 2024.05}
+\datedsubsection{\textbf{基于SPDK实现Linux用户态IO多路径软件}}{2023.11 - 2024.05}
+\textit{全国大学生计算机系统能力大赛与华为公司联合赛题 | 获评国家级一等奖 | 参赛队长 | C语言}
 \begin{itemize}
-  \item 背景：全国大学生计算机系统能力大赛，SPDK是新型用户态高性能存储驱动, 但是其绕过了Linux内核, 无法使用内核多路径功能
-  \item 任务：模仿内核多路径功能, 用C语言基于SPDK开发用户态多路径软件, 用于虚拟化存储网络
-  \item 工作：用动态链接库添加用户态多路径, 实现故障处理和负载均衡等功能并用gdb调试, 编写项目文档
-  \item 结果：存储网络中, 添加多路径的SPDK在稳定性和性能方面优于单路径, 在性能方面优于内核多路径。国家级一等奖
+  \item 背景：SPDK是新型用户态高性能存储驱动，但是其绕过了Linux内核，无法使用内核多路径功能
+  \item 任务：模仿内核多路径功能，基于SPDK开发用户态多路径软件，用于高效稳定的虚拟化存储网络
+  \item 工作：用动态链接库添加用户态多路径，实现故障处理和负载均衡等功能，编写项目文档
+  \item 结果：存储网络中，添加多路径的SPDK在稳定性和性能方面优于单路径和内核多路径。
 \end{itemize}
-\datedsubsection{\textbf{古代玻璃制品的成分分析与鉴别} | Python竞赛项目 | \textit{参赛队长}}{2022.09 - 2022.09}
+\datedsubsection{\textbf{古代玻璃制品的成分分析与鉴别}}{2022.09 - 2022.09}
+\textit{全国大学生数学建模竞赛赛题 | 获评国家级二等奖 | 参赛队长 | Python语言}
 \begin{itemize}
-  \item 背景：全国大学生数学建模竞赛。古代玻璃文物有高钾和铅钡两类, 受风化影响其化学成分有所变化, 理化性质呈现出一定规律
-  \item 任务：根据题目给出的化学成分数据, 分析玻璃文物各种“理化特征”之间的统计规律与关联关系
-  \item 工作：用统计图、卡方检验、决策树建立玻璃分类模型, 用K-means聚类进行亚类划分, 书写论文
-  \item 结果：正确预测成分含量和样本分类, 合理划分出亚类, 找到成分关联关系, 完成结果的检验分析。国家级二等奖 
+  \item 背景：古代玻璃文物有高钾和铅钡两类，受风化影响其化学成分有所变化，理化性质呈现出一定规律
+  \item 任务：根据题目给出的化学成分数据，分析玻璃文物各种“理化特征”之间的统计规律与关联关系
+  \item 工作：用统计图、卡方检验、决策树建立玻璃分类模型，用K-means聚类进行亚类划分，书写论文
+  \item 结果：正确预测成分含量和样本分类，合理划分出亚类，找到成分关联关系，完成结果的检验分析。 
 \end{itemize}
 
 \section{课余活动}
-% increase linespacing [parsep=0.5ex]
 \begin{itemize}[parsep=0.2ex]
-  \item 学院第四届学生会主席：作为主席团三位成员之一，举办生产力工具分享等活动，荣获深圳市优秀学生会称号
-  \item 校艺术团电声部键盘手：加入乐队，参加多次晚会表演；担任学院合唱团钢琴伴奏，共同取得校合唱比赛冠军
+  \item 学院第四届学生会主席：三位主席之一，举办生产力工具分享等活动，荣获深圳市优秀学生会称号
+  \item 校艺术团电声部乐队键盘手：多次参加晚会表演，担任学院合唱团钢琴伴奏，取得校合唱比赛冠军
 \end{itemize}
 
-%% Reference
-%\newpage
-%\bibliographystyle{IEEETran}
-%\bibliography{mycite}
 \end{document}
