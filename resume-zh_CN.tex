@@ -56,6 +56,14 @@
 \end{itemize}
 
 \section{项目经历}
+\datedsubsection{\textbf{多模态理解/生成模型的低比特强化学习训练稳定性优化}}{2026.01 - 2026.06}
+\textit{科研项目 | Python / CUDA | verl、DanceGRPO 框架}
+\begin{itemize}
+\item 背景：RL 中 rollout 耗时占比大，低精度推理可加速采样，但训推不匹配会使 ppo\_ratio 偏置、reward 崩溃。
+\item 任务：定位并消除训推不匹配引发的LLM及扩散模型 GRPO 训练崩溃，实现低精度 rollout 加速。
+\item 工作：\ding{172}在 verl 中实现截断采样与拒绝采样，补充 PPO ratio 均值归一化与梯度裁剪，校正训练与 rollout 的 log-prob 偏移；\ding{173}对 Diffusion GRPO 推导高斯 log-ratio 的 $\Delta$ 分解，定位 reward 崩溃源于 $A\cdot\Delta$ 精度差正反馈漂移，提出零额外耗时的 $\Delta$-debias（居中 ratio）与 $\Delta$-stopgradient（STE 修正梯度方向）；\ding{174}实现 MXFP4 在线 Hadamard 旋转量化（Qutlass kernel）与 MXFP4 QAT 假量化，将离群值能量扩散到块内、抑制 block 量化误差。
+\item 结果： LLM/多模态GRPO的MXFP8配置reward接近BF16基线；MXFP4推理经旋转将GSM8K准确率损失由45\%收窄至9\%。
+\end{itemize}
 \datedsubsection{\textbf{FastTT：移位异或纠删码高性能优化与Ceph集成}}{2025.02 - 2025.11}
 \textit{\textbf{IPDPS 2026 录用论文} | 硕士毕业设计 | C++语言}
 \begin{itemize}
@@ -80,14 +88,14 @@
   \item 工作：用动态链接库添加用户态多路径，实现故障处理和负载均衡等功能，编写项目文档。
   \item 结果：存储网络中，添加多路径的SPDK在稳定性和性能方面优于单路径和内核多路径。
 \end{itemize}
-\datedsubsection{\textbf{古代玻璃制品的成分分析与鉴别}}{2022.09 - 2022.09}
-\textit{全国大学生数学建模竞赛 | \textbf{国家级二等奖} | 参赛队长 | Python语言}
-\begin{itemize}
-  \item 背景：古代玻璃文物有高钾和铅钡两类，受风化影响其化学成分有所变化，理化性质呈现出一定规律。
-  \item 任务：根据题目给出的化学成分数据，分析玻璃文物各种“理化特征”之间的统计规律与关联关系。
-  \item 工作：用统计图、卡方检验、决策树建立玻璃分类模型，用K-means聚类进行亚类划分，书写论文。
-  \item 结果：正确预测成分含量和样本分类，合理划分出亚类，找到成分关联关系，完成结果的检验分析。 
-\end{itemize}
+% \datedsubsection{\textbf{古代玻璃制品的成分分析与鉴别}}{2022.09 - 2022.09}
+% \textit{全国大学生数学建模竞赛 | \textbf{国家级二等奖} | 参赛队长 | Python语言}
+% \begin{itemize}
+%   \item 背景：古代玻璃文物有高钾和铅钡两类，受风化影响其化学成分有所变化，理化性质呈现出一定规律。
+%   \item 任务：根据题目给出的化学成分数据，分析玻璃文物各种“理化特征”之间的统计规律与关联关系。
+%   \item 工作：用统计图、卡方检验、决策树建立玻璃分类模型，用K-means聚类进行亚类划分，书写论文。
+%   \item 结果：正确预测成分含量和样本分类，合理划分出亚类，找到成分关联关系，完成结果的检验分析。 
+% \end{itemize}
 
 \section{课余活动}
 \begin{itemize}[parsep=0.2ex]
