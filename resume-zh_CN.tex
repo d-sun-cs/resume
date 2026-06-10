@@ -12,7 +12,7 @@
 
 \begin{document}
 \pagenumbering{gobble} % suppress displaying page number
-
+\small 
 \name{孙铎}
 
 % {E-mail}{mobilephone}{homepage}
@@ -56,13 +56,13 @@
 \end{itemize}
 
 \section{项目经历}
-\datedsubsection{\textbf{多模态理解/生成模型的低比特强化学习训练稳定性优化}}{2026.01 - 2026.06}
+\datedsubsection{\textbf{LLM/多模态模型的低比特强化学习训练稳定性优化}}{2026.01 - 2026.06}
 \textit{科研项目 | Python / CUDA | verl、DanceGRPO 框架}
 \begin{itemize}
-\item 背景：RL 中 rollout 耗时占比大，低精度推理可加速采样，但训推不匹配会使 ppo\_ratio 偏置、reward 崩溃。
-\item 任务：定位并消除训推不匹配引发的LLM及扩散模型 GRPO 训练崩溃，实现低精度 rollout 加速。
-\item 工作：\ding{172}在 verl 中实现截断采样与拒绝采样，补充 PPO ratio 均值归一化与梯度裁剪，校正训练与 rollout 的 log-prob 偏移；\ding{173}对 Diffusion GRPO 推导高斯 log-ratio 的 $\Delta$ 分解，定位 reward 崩溃源于 $A\cdot\Delta$ 精度差正反馈漂移，提出零额外耗时的 $\Delta$-debias（居中 ratio）与 $\Delta$-stopgradient（STE 修正梯度方向）；\ding{174}实现 MXFP4 在线 Hadamard 旋转量化（Qutlass kernel）与 MXFP4 QAT 假量化，将离群值能量扩散到块内、抑制 block 量化误差。
-\item 结果： LLM/多模态GRPO的MXFP8配置reward接近BF16基线；MXFP4推理经旋转将GSM8K准确率损失由45\%收窄至9\%。
+\item 背景：强化学习中采样耗时占比大，低精度推理可加速采样，但训推不匹配会使 ppo\_ratio 偏置、reward 崩溃。
+\item 任务：定位并消除训推不匹配引发的LLM及扩散模型GRPO训练崩溃，实现低精度采样加速。
+\item 工作：\ding{172}在 verl 中实现截断/拒绝采样，校正训练与采样的不匹配；\ding{173}实现 MXFP4 分块在线 Hadamard 旋转量化，抑制量化误差；\ding{174}推导扩散模型GRPO精度误差分解，提出去偏与梯度修正方法校正更新方向。
+\item 结果： LLM/多模态GRPO的MXFP8配置reward接近BF16基线；MXFP4推理旋转前后准确率提升约10\%。
 \end{itemize}
 \datedsubsection{\textbf{FastTT：移位异或纠删码高性能优化与Ceph集成}}{2025.02 - 2025.11}
 \textit{\textbf{IPDPS 2026 录用论文} | 硕士毕业设计 | C++语言}
