@@ -1,0 +1,113 @@
+{
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.outDir": "%WORKSPACE_FOLDER%/build/latex-workshop/%RELATIVE_DIR%/%DOCFILE%",
+  "latex-workshop.latex.auxDir": "%OUTDIR%",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.latex.build.rootfileInStatus": true,
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (xelatex, workspace root)",
+      "tools": [
+        "latexmk-xelatex-workspace"
+      ]
+    },
+    {
+      "name": "make all resumes to dist/",
+      "tools": [
+        "make-all-resumes"
+      ]
+    },
+    {
+      "name": "make zh_CN-default to dist/",
+      "tools": [
+        "make-zh-cn-default"
+      ]
+    },
+    {
+      "name": "make zh_CN-internet to dist/",
+      "tools": [
+        "make-zh-cn-internet"
+      ]
+    },
+    {
+      "name": "make zh_CN-state-owned to dist/",
+      "tools": [
+        "make-zh-cn-state-owned"
+      ]
+    },
+    {
+      "name": "make en_US-default to dist/",
+      "tools": [
+        "make-en-us-default"
+      ]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk-xelatex-workspace",
+      "command": "latexmk",
+      "args": [
+        "-xelatex",
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "-file-line-error",
+        "-outdir=%OUTDIR%",
+        "%DOC_EXT%"
+      ],
+      "cwd": "%WORKSPACE_FOLDER%",
+      "env": {}
+    },
+    {
+      "name": "make-all-resumes",
+      "command": "make",
+      "args": [],
+      "cwd": "%WORKSPACE_FOLDER%",
+      "env": {}
+    },
+    {
+      "name": "make-zh-cn-default",
+      "command": "make",
+      "args": [
+        "zh_CN-default"
+      ],
+      "cwd": "%WORKSPACE_FOLDER%",
+      "env": {}
+    },
+    {
+      "name": "make-zh-cn-internet",
+      "command": "make",
+      "args": [
+        "zh_CN-internet"
+      ],
+      "cwd": "%WORKSPACE_FOLDER%",
+      "env": {}
+    },
+    {
+      "name": "make-zh-cn-state-owned",
+      "command": "make",
+      "args": [
+        "zh_CN-state-owned"
+      ],
+      "cwd": "%WORKSPACE_FOLDER%",
+      "env": {}
+    },
+    {
+      "name": "make-en-us-default",
+      "command": "make",
+      "args": [
+        "en_US-default"
+      ],
+      "cwd": "%WORKSPACE_FOLDER%",
+      "env": {}
+    }
+  ],
+  "latex-workshop.latex.clean.method": "command",
+  "latex-workshop.latex.clean.command": "latexmk",
+  "latex-workshop.latex.clean.args": [
+    "-outdir=%OUTDIR%",
+    "-c",
+    "%DOC_EXT%"
+  ]
+}

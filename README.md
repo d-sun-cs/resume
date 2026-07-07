@@ -1,6 +1,26 @@
 # 个人简历
 
-本项目为个人简历 Latex 源码存放，同时包含效果图呈现，简历入口为 resume-zh_CN.tex， 修改自项目 [resume](https://github.com/billryan/resume/)，若不想本地手动编译可以将该源码打包至 zip 直接上传至 ShareLatex 进行在线编译与预览。
+本项目为个人简历 Latex 源码存放，同时包含效果图呈现，修改自项目 [resume](https://github.com/billryan/resume/)。仓库已按多版本简历组织，适合维护国企、互联网、英文等不同投递场景。
+
+## 多版本结构
+
+- `versions/`: 每份简历的入口文件，只负责声明版本名并加载模板。
+- `src/`: 中文/英文通用模板，定义章节加载顺序和公共导言区。
+- `content/zh_CN/shared/`: 中文简历共享章节。
+- `content/zh_CN/variants/<版本名>/`: 中文简历某个版本的覆盖章节。
+- `content/en_US/shared/`: 英文简历共享章节。
+- `content/en_US/variants/<版本名>/`: 英文简历某个版本的覆盖章节。
+- `build/`: 编译中间文件，自动生成，不提交。
+- `dist/`: 最终 PDF，自动生成，不提交。
+
+当前内置版本：
+
+- `zh_CN/default`: 默认中文简历
+- `zh_CN/internet`: 互联网投递版入口，当前复用默认内容
+- `zh_CN/state-owned`: 国企投递版入口，当前复用默认内容
+- `en_US/default`: 默认英文简历
+
+如果某个版本只想改一节，不需要复制整份简历。例如要改互联网版项目经历，新建 `content/zh_CN/variants/internet/projects.tex`，构建时会自动替代 `content/zh_CN/shared/projects.tex`。没有覆盖的章节继续复用 shared 内容。
 
 ## 项目说明
 
@@ -27,8 +47,28 @@
 
 ## 使用方法
 
-1. OverLeaf 在线编译
-2. 使用较新的 \LaTeX\ 发行版在本地计算机编译
+使用较新的 \LaTeX\ 发行版在本地计算机编译，编译器需选择 XeLaTeX。
+
+```sh
+make list              # 查看所有版本
+make                   # 构建所有版本
+make zh_CN-default     # 构建默认中文简历
+make zh_CN-internet    # 构建互联网版中文简历
+make zh_CN-state-owned # 构建国企版中文简历
+make en_US-default     # 构建默认英文简历
+make clean             # 删除 build/ 中间文件
+make distclean         # 删除 build/ 和 dist/
+```
+
+生成的 PDF 位于 `dist/`，例如 `dist/zh_CN-default.pdf`。
+
+如果使用 Overleaf/ShareLaTeX 在线编译，可以上传整个仓库，并把主文件设置为 `versions/zh_CN/default.tex` 或其他 `versions/` 下的入口文件。
+
+### VS Code / LaTeX Workshop
+
+仓库内已提供 `.vscode/settings.json` 和 `.vscode/extensions.json`。打开 `versions/` 下的入口文件后，使用 LaTeX Workshop 的 Build LaTeX Project 即可编译当前版本。默认 recipe 会用 `latexmk + xelatex` 从仓库根目录运行，预览用 PDF 输出到 `build/latex-workshop/`。
+
+需要生成正式投递用 PDF 时，可以在 LaTeX Workshop 的 Build with recipe 中选择 `make ... to dist/` 相关 recipe，或直接在终端运行 `make`。正式 PDF 仍统一输出到 `dist/`。
 
 如果确定只需要中文简历的话单独克隆 `master` 分支即可, 需要注意的是该分支包含 Adobe 的宋楷黑仿四套中文字体，压缩包约为37MB。[下载地址](https://github.com/hijiangtao/resume/releases)
 

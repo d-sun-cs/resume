@@ -1,0 +1,29 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
+
+\documentclass{resume}
+\usepackage{linespacing_fix} % disable extra space before next section
+\usepackage{cite}
+\usepackage{pifont} % circled numbers
+
+\providecommand{\ResumeVariant}{default}
+\newcommand{\ResumeSection}[1]{%
+  \IfFileExists{content/en_US/variants/\ResumeVariant/#1.tex}{%
+    \input{content/en_US/variants/\ResumeVariant/#1.tex}%
+  }{%
+    \input{content/en_US/shared/#1.tex}%
+  }%
+}
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\ResumeSection{header}
+\ResumeSection{education}
+\ResumeSection{papers}
+\ResumeSection{experience}
+\ResumeSection{certificates}
+\ResumeSection{awards-skills-community}
+
+\end{document}
