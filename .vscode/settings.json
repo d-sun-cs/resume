@@ -7,9 +7,15 @@
   "latex-workshop.latex.build.rootfileInStatus": true,
   "latex-workshop.latex.recipes": [
     {
-      "name": "latexmk (xelatex, workspace root)",
+      "name": "latexmk current resume",
       "tools": [
-        "latexmk-xelatex-workspace"
+        "latexmk-current-resume"
+      ]
+    },
+    {
+      "name": "make current resume to dist/",
+      "tools": [
+        "make-current-resume"
       ]
     },
     {
@@ -17,35 +23,11 @@
       "tools": [
         "make-all-resumes"
       ]
-    },
-    {
-      "name": "make zh_CN-default to dist/",
-      "tools": [
-        "make-zh-cn-default"
-      ]
-    },
-    {
-      "name": "make zh_CN-internet to dist/",
-      "tools": [
-        "make-zh-cn-internet"
-      ]
-    },
-    {
-      "name": "make zh_CN-state-owned to dist/",
-      "tools": [
-        "make-zh-cn-state-owned"
-      ]
-    },
-    {
-      "name": "make en_US-default to dist/",
-      "tools": [
-        "make-en-us-default"
-      ]
     }
   ],
   "latex-workshop.latex.tools": [
     {
-      "name": "latexmk-xelatex-workspace",
+      "name": "latexmk-current-resume",
       "command": "latexmk",
       "args": [
         "-xelatex",
@@ -60,45 +42,21 @@
       "env": {}
     },
     {
+      "name": "make-current-resume",
+      "command": "bash",
+      "args": [
+        "-lc",
+        "root=\"$1\"; root=\"${root#versions/}\"; root=\"${root%.tex}\"; target=\"$(printf '%s' \"$root\" | tr '/' '-')\"; case \"$target\" in zh_CN-*|en_US-*) make \"$target\" ;; *) echo \"Open a resume entry under versions/ before running this recipe: $root\" >&2; exit 2 ;; esac",
+        "_",
+        "%RELATIVE_DOC%"
+      ],
+      "cwd": "%WORKSPACE_FOLDER%",
+      "env": {}
+    },
+    {
       "name": "make-all-resumes",
       "command": "make",
       "args": [],
-      "cwd": "%WORKSPACE_FOLDER%",
-      "env": {}
-    },
-    {
-      "name": "make-zh-cn-default",
-      "command": "make",
-      "args": [
-        "zh_CN-default"
-      ],
-      "cwd": "%WORKSPACE_FOLDER%",
-      "env": {}
-    },
-    {
-      "name": "make-zh-cn-internet",
-      "command": "make",
-      "args": [
-        "zh_CN-internet"
-      ],
-      "cwd": "%WORKSPACE_FOLDER%",
-      "env": {}
-    },
-    {
-      "name": "make-zh-cn-state-owned",
-      "command": "make",
-      "args": [
-        "zh_CN-state-owned"
-      ],
-      "cwd": "%WORKSPACE_FOLDER%",
-      "env": {}
-    },
-    {
-      "name": "make-en-us-default",
-      "command": "make",
-      "args": [
-        "en_US-default"
-      ],
       "cwd": "%WORKSPACE_FOLDER%",
       "env": {}
     }
