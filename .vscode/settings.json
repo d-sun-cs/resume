@@ -11,18 +11,6 @@
       "tools": [
         "latexmk-current-resume"
       ]
-    },
-    {
-      "name": "make current resume to dist/",
-      "tools": [
-        "make-current-resume"
-      ]
-    },
-    {
-      "name": "make all resumes to dist/",
-      "tools": [
-        "make-all-resumes"
-      ]
     }
   ],
   "latex-workshop.latex.tools": [
@@ -38,25 +26,6 @@
         "-outdir=%OUTDIR%",
         "%DOC_EXT%"
       ],
-      "cwd": "%WORKSPACE_FOLDER%",
-      "env": {}
-    },
-    {
-      "name": "make-current-resume",
-      "command": "bash",
-      "args": [
-        "-lc",
-        "root=\"$1\"; root=\"${root#versions/}\"; root=\"${root%.tex}\"; target=\"$(printf '%s' \"$root\" | tr '/' '-')\"; case \"$target\" in zh_CN-*|en_US-*) make \"$target\" ;; *) echo \"Open a resume entry under versions/ before running this recipe: $root\" >&2; exit 2 ;; esac",
-        "_",
-        "%RELATIVE_DOC%"
-      ],
-      "cwd": "%WORKSPACE_FOLDER%",
-      "env": {}
-    },
-    {
-      "name": "make-all-resumes",
-      "command": "make",
-      "args": [],
       "cwd": "%WORKSPACE_FOLDER%",
       "env": {}
     }

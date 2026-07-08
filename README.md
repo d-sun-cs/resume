@@ -68,8 +68,6 @@ make distclean         # 删除 build/ 和 dist/
 
 仓库内已提供 `.vscode/settings.json` 和 `.vscode/extensions.json`。打开 `versions/` 下的入口文件后，使用 LaTeX Workshop 的 Build LaTeX Project 即可编译当前版本。默认 recipe 会用 `latexmk + xelatex` 从仓库根目录运行，预览用 PDF 输出到 `build/latex-workshop/`。
 
-需要生成正式投递用 PDF 时，可以在 LaTeX Workshop 的 Build with recipe 中选择 `make current resume to dist/`，它会根据当前 `versions/.../*.tex` 自动映射到对应 Makefile 目标。也可以选择 `make all resumes to dist/` 或直接在终端运行 `make`。正式 PDF 仍统一输出到 `dist/`。
-
 如果确定只需要中文简历的话单独克隆 `master` 分支即可, 需要注意的是该分支包含 Adobe 的宋楷黑仿四套中文字体，压缩包约为37MB。[下载地址](https://github.com/hijiangtao/resume/releases)
 
 ```
