@@ -6,6 +6,7 @@
 
 - `content/zh_CN/variants/internet/projects.tex`
 - `content/zh_CN/variants/state-owned/skills.tex`
+- `content/zh_CN/variants/zte/activities.tex`
 
 当前可覆盖章节名：
 

@@ -4,7 +4,7 @@ LATEXMK_FLAGS ?= -xelatex -interaction=nonstopmode -halt-on-error -file-line-err
 BUILD_DIR := build
 DIST_DIR := dist
 
-VERSIONS := zh_CN/default zh_CN/internet zh_CN/state-owned en_US/default
+VERSIONS := zh_CN/default zh_CN/internet zh_CN/state-owned zh_CN/zte en_US/default
 VERSION_TARGETS := $(subst /,-,$(VERSIONS))
 PDFS := $(addprefix $(DIST_DIR)/,$(addsuffix .pdf,$(VERSION_TARGETS)))
 
@@ -12,7 +12,7 @@ TEX_DEPS := $(shell find src content versions -type f -name '*.tex' 2>/dev/null)
 TEX_DEPS += resume.cls fontawesome.sty linespacing_fix.sty
 TEX_DEPS += zh_CN-Adobefonts_external.sty zh_CN-Adobefonts_internal.sty
 
-.PHONY: all pdf clean distclean list zh_CN en en_US internet state-owned soe $(VERSION_TARGETS)
+.PHONY: all pdf clean distclean list zh_CN en en_US internet state-owned soe zte $(VERSION_TARGETS)
 
 all: pdf
 
@@ -25,6 +25,7 @@ zh_CN: zh_CN-default
 en en_US: en_US-default
 internet: zh_CN-internet
 state-owned soe: zh_CN-state-owned
+zte: zh_CN-zte
 
 $(DIST_DIR) $(BUILD_DIR):
 	mkdir -p $@

@@ -18,6 +18,7 @@
 - `zh_CN/default`: 默认中文简历
 - `zh_CN/internet`: 互联网投递版入口，当前复用默认内容
 - `zh_CN/state-owned`: 国企投递版入口，当前复用默认内容
+- `zh_CN/zte`: 中兴通讯投递版，覆盖课余活动章节
 - `en_US/default`: 默认英文简历
 
 如果某个版本只想改一节，不需要复制整份简历。例如要改互联网版项目经历，新建 `content/zh_CN/variants/internet/projects.tex`，构建时会自动替代 `content/zh_CN/shared/projects.tex`。没有覆盖的章节继续复用 shared 内容。
