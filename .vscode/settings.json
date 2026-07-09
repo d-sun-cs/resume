@@ -29,10 +29,8 @@
     }
   ],
   "latex-workshop.latex.clean.method": "command",
-  "latex-workshop.latex.clean.command": "latexmk",
+  "latex-workshop.latex.clean.command": "make",
   "latex-workshop.latex.clean.args": [
-    "-outdir=%OUTDIR%",
-    "-c",
-    "%DOC_EXT%"
+    "clean"
   ]
 }

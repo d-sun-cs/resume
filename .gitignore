@@ -1,7 +1,10 @@
 # Generated build output
 build/
-# keep resume.pdf in the repository
-# dist/
+
+# Keep final PDFs in dist/, ignore anything else that lands there.
+dist/*
+!dist/
+!dist/*.pdf
 
 # LaTeX intermediates
 *.aux
@@ -17,8 +20,7 @@ build/
 *.toc
 *.xdv
 
-# Generated PDFs are reproducible through `make`.
-*.pdf
+# Final PDFs are committed from dist/.
 
 # Local scratch/reference files
 refs/

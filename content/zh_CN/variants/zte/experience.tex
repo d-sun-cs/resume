@@ -5,8 +5,8 @@
 \textit{推荐模型 Hybrid Embedding 存储项目 | 机器学习训练框架开发实习生}
 \begin{itemize}
   \item 参与 Hybrid Embedding 显存/内存/SSD 三级存储架构开发，扩展 GPU 计算节点 embedding 容量。
-  \item 负责 CPU 内存侧 embedding 压缩存储与按需解压，降低内存占用，支持 GPU 读取时实时解压。
-  \item 解耦 GPU/CPU 换入换出与压缩解压逻辑，抽象 Converter 接口，提升多压缩格式、GPU/MLU 后端扩展性。
+  \item 负责梳理 embedding 压缩存储与按需解压调用链，重构模块调用入口，降低存储与换入换出路径耦合。
+  \item 解耦 GPU/CPU 换入换出与压缩解压流程，抽象 Converter 接口，提升多压缩格式、GPU/MLU 后端扩展性。
 \end{itemize}
 \datedsubsection{\textbf{天王星量化深圳研究院}}{2024.06 - 2024.09}
 \textit{推理框架优化项目 | C++语言 | 高性能计算开发实习生}
