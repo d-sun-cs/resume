@@ -61,13 +61,13 @@ make clean             # 删除 build/ 中间文件
 make distclean         # 删除 build/ 和 dist/
 ```
 
-生成的 PDF 位于 `dist/`，例如 `dist/zh_CN-default.pdf`。
+正式 PDF 位于 `dist/`，例如 `dist/zh_CN-default.pdf`。`dist/` 中只应保留正式 PDF；LaTeX 中间文件应留在 `build/` 或被 `make clean` 清理。
 
 如果使用 Overleaf/ShareLaTeX 在线编译，可以上传整个仓库，并把主文件设置为 `versions/zh_CN/default.tex` 或其他 `versions/` 下的入口文件。
 
 ### VS Code / LaTeX Workshop
 
-仓库内已提供 `.vscode/settings.json` 和 `.vscode/extensions.json`。打开 `versions/` 下的入口文件后，使用 LaTeX Workshop 的 Build LaTeX Project 即可编译当前版本。默认 recipe 会用 `latexmk + xelatex` 从仓库根目录运行，预览用 PDF 输出到 `build/latex-workshop/`。
+仓库内已提供 `.vscode/settings.json` 和 `.vscode/extensions.json`。打开 `versions/` 下的入口文件后，使用 LaTeX Workshop 的 Build LaTeX Project 即可编译当前版本。默认 recipe 会调用 Makefile 生成正式 PDF 到 `dist/`，文件名按版本命名，例如 `zh_CN-zte.pdf`；同时会把同一份 PDF 同步到 `build/latex-workshop/` 供 LaTeX Workshop 预览。
 
 如果确定只需要中文简历的话单独克隆 `master` 分支即可, 需要注意的是该分支包含 Adobe 的宋楷黑仿四套中文字体，压缩包约为37MB。[下载地址](https://github.com/hijiangtao/resume/releases)
 

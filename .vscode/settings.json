@@ -16,15 +16,13 @@
   "latex-workshop.latex.tools": [
     {
       "name": "latexmk-current-resume",
-      "command": "latexmk",
+      "command": "bash",
       "args": [
-        "-xelatex",
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-halt-on-error",
-        "-file-line-error",
-        "-outdir=%OUTDIR%",
-        "%DOC_EXT%"
+        "scripts/build-current-resume.sh",
+        "%DOC_EXT%",
+        "%OUTDIR%",
+        "%DOCFILE%",
+        "%WORKSPACE_FOLDER%"
       ],
       "cwd": "%WORKSPACE_FOLDER%",
       "env": {}

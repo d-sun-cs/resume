@@ -1,5 +1,5 @@
 LATEXMK ?= latexmk
-LATEXMK_FLAGS ?= -xelatex -interaction=nonstopmode -halt-on-error -file-line-error
+LATEXMK_FLAGS ?= -g -xelatex -interaction=nonstopmode -halt-on-error -file-line-error
 
 BUILD_DIR := build
 DIST_DIR := dist
@@ -44,6 +44,7 @@ $(foreach version,$(VERSIONS),$(eval $(call BUILD_RESUME,$(version))))
 clean:
 	rm -rf $(BUILD_DIR)
 	find . -maxdepth 1 -type f \( -name '*.aux' -o -name '*.bbl' -o -name '*.blg' -o -name '*.fdb_latexmk' -o -name '*.fls' -o -name '*.log' -o -name '*.out' -o -name '*.synctex.gz' -o -name '*.xdv' \) -delete
+	if [ -d "$(DIST_DIR)" ]; then find $(DIST_DIR) -maxdepth 1 -type f \( -name '*.aux' -o -name '*.bbl' -o -name '*.blg' -o -name '*.fdb_latexmk' -o -name '*.fls' -o -name '*.log' -o -name '*.out' -o -name '*.synctex.gz' -o -name '*.xdv' \) -delete; fi
 
 distclean: clean
 	rm -rf $(DIST_DIR)

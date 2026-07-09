@@ -1,0 +1,41 @@
+% !TEX root = ../../../../versions/zh_CN/zte.tex
+
+\section{项目经历}
+\datedsubsection{\textbf{LLM/多模态模型的低比特强化学习训练稳定性优化}}{2026.01 - 2026.06}
+\textit{科研项目 | Python / CUDA | verl、DanceGRPO 框架}
+\begin{itemize}
+\item 面向低精度采样导致的训推不匹配问题，在 verl 中实现截断/拒绝采样，并结合 MXFP4 在线 Hadamard 旋转量化抑制误差。
+\item 推导扩散模型 GRPO 精度误差分解，设计去偏与梯度修正方法；MXFP8 reward 接近 BF16 基线，MXFP4 准确率提升约10\%。
+\end{itemize}
+\datedsubsection{\textbf{FastTT：移位异或纠删码高性能优化与Ceph集成}}{2025.02 - 2025.11}
+\textit{\textbf{IPDPS 2026 录用论文} | 硕士毕业设计 | C++语言}
+\begin{itemize}
+\item 背景：移位异或纠删码（Two-tone）理论复杂度低，但现有实现存在功能性差和内存访问瓶颈的问题。
+\item 任务：设计高性能纠删码库FastTT，将其集成至分布式存储系统Ceph，并解决工程落地的性能瓶颈。
+\item 工作：\ding{172}提出窗口划分与相邻合并访问技术，增强局部性并消除冗余读写；\ding{173}设计“纠删-校验映射”统一解码流程，结合遍历模式选择策略加速单块故障恢复；\ding{174}完善算法编解码功能，作为纠删码插件集成至Ceph。
+\item 结果：编解码吞吐量相比于Ceph中SOTA库ISA-L和学术SOTA库Cerasure都有平均约30\%的提升。
+\end{itemize}
+\datedsubsection{\textbf{面向新型GPU架构的稀疏矩阵乘法（SpMM）优化}}{2023.11 - 2024.05}
+\textit{本科毕业设计 | CUDA C++语言}
+\begin{itemize}
+  \item 背景：内存访问是SpMM的性能瓶颈，Ampere架构新增共享内存异步传输新特性，可用于缓解内存瓶颈。
+  \item 任务：利用从全局内存到共享内存异步数据拷贝的新特性，通过流水线数据预取优化SpMM算法。
+  \item 工作：用NCU分析性能瓶颈，用新特性改进GCOOSpDM算法，并实现基于CSC格式提高内存复用的算法。
+  \item 结果：应用新特性的算法在小矩阵和高稀疏度的情况下速度比cuBLAS和cuSPARSE平均提升140\%。
+\end{itemize}
+\datedsubsection{\textbf{基于SPDK实现Linux用户态IO多路径软件}}{2023.03 - 2023.08}
+\textit{全国大学生计算机系统能力大赛 | \textbf{国家级一等奖} | 参赛队长 | C语言}
+\begin{itemize}
+  \item 背景：SPDK是新型用户态高性能存储驱动，但是其绕过了Linux内核，无法使用内核多路径功能。
+  \item 任务：模仿内核多路径功能，基于SPDK开发用户态多路径软件，用于高效稳定的虚拟化存储网络。
+  \item 工作：用动态链接库添加用户态多路径，实现故障处理和负载均衡等功能，编写项目文档。
+  \item 结果：存储网络中，添加多路径的SPDK在稳定性和性能方面优于单路径和内核多路径。
+\end{itemize}
+% \datedsubsection{\textbf{古代玻璃制品的成分分析与鉴别}}{2022.09 - 2022.09}
+% \textit{全国大学生数学建模竞赛 | \textbf{国家级二等奖} | 参赛队长 | Python语言}
+% \begin{itemize}
+%   \item 背景：古代玻璃文物有高钾和铅钡两类，受风化影响其化学成分有所变化，理化性质呈现出一定规律。
+%   \item 任务：根据题目给出的化学成分数据，分析玻璃文物各种“理化特征”之间的统计规律与关联关系。
+%   \item 工作：用统计图、卡方检验、决策树建立玻璃分类模型，用K-means聚类进行亚类划分，书写论文。
+%   \item 结果：正确预测成分含量和样本分类，合理划分出亚类，找到成分关联关系，完成结果的检验分析。
+% \end{itemize}
