@@ -1,0 +1,27 @@
+% !TEX root = ../../../../versions/zh_CN/hpc.tex
+
+\section{项目经历}
+\datedsubsection{\textbf{FastTT：移位异或纠删码高性能优化与Ceph集成}}{2025.02 - 2025.11}
+\textit{\textbf{IPDPS 2026 录用论文} | 硕士毕业设计 | C++语言}
+\begin{itemize}
+  \item 针对 Two-tone 纠删码的内存访问瓶颈，提出窗口划分与相邻合并访问，增强数据局部性并消除冗余读写。
+  \item 设计统一解码流程与遍历模式选择策略，完善编解码并集成 Ceph；吞吐量较 ISA-L 与 Cerasure 平均提升约30\%。
+\end{itemize}
+\datedsubsection{\textbf{面向新型GPU架构的稀疏矩阵乘法（SpMM）优化}}{2023.11 - 2024.05}
+\textit{本科毕业设计 | CUDA C++语言}
+\begin{itemize}
+  \item 使用 NCU 定位 SpMM 内存访问瓶颈，基于 Ampere 异步数据拷贝与流水线预取优化 GCOOSpDM。
+  \item 设计 CSC 格式算法提升内存复用；小矩阵、高稀疏度场景下较 cuBLAS/cuSPARSE 平均提速140\%。
+\end{itemize}
+\datedsubsection{\textbf{LLM/多模态模型的低比特强化学习训练稳定性优化}}{2026.01 - 2026.06}
+\textit{校企合作科研项目 | Python / CUDA | VeRL、DanceGRPO 框架}
+\begin{itemize}
+  \item 在 VeRL 中实现截断/拒绝采样以校正训推不一致，并实现 MXFP4 分块在线 Hadamard 旋转量化以抑制误差。
+  \item 推导扩散模型 GRPO 精度误差分解并设计去偏修正；MXFP8 reward 接近 BF16 基线，MXFP4 准确率提升约10\%。
+\end{itemize}
+\datedsubsection{\textbf{基于SPDK实现Linux用户态IO多路径软件}}{2023.03 - 2023.08}
+\textit{全国大学生计算机系统能力大赛 | \textbf{国家级一等奖} | 参赛队长 | C语言}
+\begin{itemize}
+  \item 基于 SPDK 开发用户态 I/O 多路径，使用动态链接库实现故障处理与负载均衡。
+  \item 负责方案设计与项目文档；存储网络测试中，稳定性和性能优于 SPDK 单路径及内核多路径。
+\end{itemize}

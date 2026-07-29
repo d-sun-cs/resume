@@ -1,0 +1,15 @@
+% !TEX root = ../../../../versions/zh_CN/hpc.tex
+
+\section{实习经历}
+\datedsubsection{\textbf{字节跳动 AML Engine}}{2026.06 - 至今}
+\textit{推荐模型 Hybrid Embedding 存储项目 | 机器学习训练框架开发实习生}
+\begin{itemize}
+  \item 参与 Hybrid Embedding 显存/内存/SSD 三级存储架构开发，负责 CPU 内存侧 embedding 压缩存储与 GPU 读取时按需解压，降低内存占用。
+  \item 解耦 GPU/CPU 换入换出与压缩解压流程，抽象 Converter 统一接口，支持多种压缩格式及 GPU/MLU 计算后端扩展。
+\end{itemize}
+\datedsubsection{\textbf{天王星量化深圳研究院}}{2024.06 - 2024.09}
+\textit{推理框架优化项目 | C++语言 | 高性能计算开发实习生}
+\begin{itemize}
+  \item 分析 C++ 推理框架计算图执行路径，实现缓存输入节点最大子树的“懒执行”，测试场景提速约20\%。
+  \item 设计线程池并发执行算子，以条件变量同步 DAG 依赖；4--8 核 CPU 测试场景提速约120\%。
+\end{itemize}
