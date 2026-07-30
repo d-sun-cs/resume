@@ -1,8 +1,11 @@
 % !TEX root = ../../../../versions/zh_CN/hpc.tex
 
 \section{技术能力}
+\newlength{\HPCSkillIndent}
+\settowidth{\HPCSkillIndent}{\textbf{高性能计算}:~}
 \begin{itemize}[parsep=0.2ex]
-  \item \textbf{高性能计算}: 熟悉 C++、CUDA；了解 C++ 多线程与协程、SIMD、OpenMP、MPI、cuBLAS、WMMA/MMA、CUTLASS；具备 CPU 端 DAG 并发执行、移位异或纠删码内存访问优化及 CUDA SpMM 优化实践
-  \item \textbf{高性能存储}: 了解 SPDK（无锁队列、Poller、TAILQ）、Ceph；具备 SPDK 多路径开发与 Ceph 纠删码插件集成实践
+  \item \textbf{高性能计算}: 熟悉 C++、CUDA；了解 C++ 多线程与协程、SIMD、OpenMP、MPI、cuBLAS、WMMA/MMA、CUTLASS；\\
+  \hspace*{\HPCSkillIndent}具备 CPU 端 DAG 并发执行、移位异或纠删码内存访问优化及 CUDA SpMM 优化实践
+  \item \textbf{高性能存储}: 了解 SPDK（无锁队列、Poller、qpair）、Ceph、NVMe、RDMA；具备 SPDK 多路径、Ceph 纠删码插件实践
   \item \textbf{大模型训推}: 了解 vLLM、VeRL、PyTorch；具备 VeRL 强化学习低比特推理与训练实践
 \end{itemize}

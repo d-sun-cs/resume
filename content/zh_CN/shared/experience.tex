@@ -1,9 +1,13 @@
 \section{实习经历}
+\datedsubsection{\textbf{字节跳动 AML Engine}}{2026.06 - 至今}
+\textit{推荐模型 Hybrid Embedding 存储项目 | 机器学习训练框架开发实习生}
+\begin{itemize}
+  \item 参与 Hybrid Embedding GPU/CPU/SSD 三级存储，CPU/SSD 使用 TF32 压缩、GPU 保持 FP32 训练，降低存储占用。
+  \item 设计 TF32 payload / FP32 stride 原地 Converter，解耦格式转换与数据搬运，简化结构并便于扩展新格式。
+\end{itemize}
 \datedsubsection{\textbf{天王星量化深圳研究院}}{2024.06 - 2024.09}
 \textit{推理框架优化项目 | C++语言 | 高性能计算开发实习生}
 \begin{itemize}
-  \item 背景：公司专用量化模型的推理框架有待进一步优化，并需要完善文档以支撑后续迭代。
-  \item 任务：为推理框架撰写技术文档，学习开源推理框架（ONNX Runtime），进一步探索计算图的推理加速方案。
-  \item 工作：\ding{172}模块化撰写项目文档，了解框架代码基本情况；\ding{173}提出“懒执行”优化策略，保存输入节点最大子树以实现增量执行；\ding{174}设计线程池并发执行算子，为张量绑定条件变量，解决DAG同步问题。
-  \item 结果：测试场景下，“懒执行”提速约20\%，线程池并发推理在4-8核CPU下提速约120\%。
+  \item 将静态计算图调度由 Mutex/CV 的 Thread-per-task 重构为线程池与原子入度，降低同步开销；4--8 核 CPU 测试提速约120\%。
+  \item 基于 Dirty Bit/Version Tag 实现算子级判脏与重叠路径去重，复用 Clean 节点并避免重复计算；测试提速约20\%。
 \end{itemize}

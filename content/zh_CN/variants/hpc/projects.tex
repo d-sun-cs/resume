@@ -1,27 +1,33 @@
 % !TEX root = ../../../../versions/zh_CN/hpc.tex
 
 \section{项目经历}
+\datedsubsection{\textbf{LLM/多模态模型的低比特强化学习训推稳定性优化}}{2026.01 - 2026.06}
+\textit{校企合作科研项目 | Python / CUDA | VeRL、DanceGRPO 框架}
+\begin{itemize}
+  \item 在 VeRL 中实现截断/拒绝采样以校正训推不一致，并实现 MXFP4 分块在线 Hadamard 旋转量化以抑制低比特推理误差。
+  \item 推导扩散模型 GRPO 精度误差分解并设计去偏修正；MXFP8 reward 接近 BF16 基线，MXFP4 推理准确率提升约10\%。
+\end{itemize}
 \datedsubsection{\textbf{FastTT：移位异或纠删码高性能优化与Ceph集成}}{2025.02 - 2025.11}
 \textit{\textbf{IPDPS 2026 录用论文} | 硕士毕业设计 | C++语言}
 \begin{itemize}
-  \item 针对 Two-tone 纠删码的内存访问瓶颈，提出窗口划分与相邻合并访问，增强数据局部性并消除冗余读写。
-  \item 设计统一解码流程与遍历模式选择策略，完善编解码并集成 Ceph；吞吐量较 ISA-L 与 Cerasure 平均提升约30\%。
+\item 背景：移位异或纠删码（Two-tone）理论复杂度低，但现有实现存在功能性差和内存访问瓶颈的问题。
+\item 任务：设计高性能纠删码库FastTT，将其集成至分布式存储系统Ceph，并解决工程落地的性能瓶颈。
+\item 工作：\ding{172}提出窗口划分与相邻合并访问技术，增强局部性并消除冗余读写；\ding{173}设计“纠删-校验映射”统一解码流程，结合遍历模式选择策略加速单块故障恢复；\ding{174}完善算法编解码功能，作为纠删码插件集成至Ceph。
+\item 结果：编解码吞吐量相比于Ceph中SOTA库ISA-L和学术SOTA库Cerasure都有平均约30\%的提升。
 \end{itemize}
 \datedsubsection{\textbf{面向新型GPU架构的稀疏矩阵乘法（SpMM）优化}}{2023.11 - 2024.05}
 \textit{本科毕业设计 | CUDA C++语言}
 \begin{itemize}
-  \item 使用 NCU 定位 SpMM 内存访问瓶颈，基于 Ampere 异步数据拷贝与流水线预取优化 GCOOSpDM。
-  \item 设计 CSC 格式算法提升内存复用；小矩阵、高稀疏度场景下较 cuBLAS/cuSPARSE 平均提速140\%。
-\end{itemize}
-\datedsubsection{\textbf{LLM/多模态模型的低比特强化学习训练稳定性优化}}{2026.01 - 2026.06}
-\textit{校企合作科研项目 | Python / CUDA | VeRL、DanceGRPO 框架}
-\begin{itemize}
-  \item 在 VeRL 中实现截断/拒绝采样以校正训推不一致，并实现 MXFP4 分块在线 Hadamard 旋转量化以抑制误差。
-  \item 推导扩散模型 GRPO 精度误差分解并设计去偏修正；MXFP8 reward 接近 BF16 基线，MXFP4 准确率提升约10\%。
+  \item 背景：内存访问是SpMM的性能瓶颈，Ampere架构新增共享内存异步传输新特性，可用于缓解内存瓶颈。
+  \item 任务：利用从全局内存到共享内存异步数据拷贝的新特性，通过流水线数据预取优化SpMM算法。
+  \item 工作：用NCU分析性能瓶颈，用新特性改进GCOOSpDM算法，并实现基于CSC格式提高内存复用的算法。
+  \item 结果：应用新特性的算法在小矩阵和高稀疏度的情况下速度比cuBLAS和cuSPARSE平均提升140\%。
 \end{itemize}
 \datedsubsection{\textbf{基于SPDK实现Linux用户态IO多路径软件}}{2023.03 - 2023.08}
 \textit{全国大学生计算机系统能力大赛 | \textbf{国家级一等奖} | 参赛队长 | C语言}
 \begin{itemize}
-  \item 基于 SPDK 开发用户态 I/O 多路径，使用动态链接库实现故障处理与负载均衡。
-  \item 负责方案设计与项目文档；存储网络测试中，稳定性和性能优于 SPDK 单路径及内核多路径。
+  \item 背景：SPDK是新型用户态高性能存储驱动，但是其绕过了Linux内核，无法使用内核多路径功能。
+  \item 任务：模仿内核多路径功能，基于SPDK开发用户态多路径软件，用于高效稳定的虚拟化存储网络。
+  \item 工作：用动态链接库添加用户态多路径，实现故障处理和负载均衡等功能，编写项目文档。
+  \item 结果：存储网络中，添加多路径的SPDK在稳定性和性能方面优于单路径和内核多路径。
 \end{itemize}
